@@ -1,10 +1,11 @@
-<h2>Sample project to demonstrate how to create a lambda function in
+<h2>Jarvis lab assistant using Amazon echo and AWS lambda.
+How to create a lambda function in
 Python that can be used in an Alexa Skill.</h2>
 
 <h2>AlexaBaseHandler class</h2>
 
-The AlexaBaseHandler class is an abstract class that provides the necessary
-framework to build the necessary response hooks for an Alexa application.
+The AlexaBaseHandler class is an abstract class that provides the framework
+to build the necessary response hooks for an Alexa application.
 
 <h3>process_request</h3>
 This method will take the 2 parameters that are sent to the lambda function
@@ -62,6 +63,9 @@ It is that file that needs to be upload to the Amazon Lambda console.
 
 http://docs.aws.amazon.com/lambda/latest/dg/python-programming-model-handler-types.html
 http://docs.aws.amazon.com/lambda/latest/dg/lambda-python-how-to-create-deployment-package.html
+https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/developing-an-alexa-skill-as-a-lambda-function
+https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/deploying-a-sample-skill-to-aws-lambda
+https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/handling-requests-sent-by-alexa
 
 
 
