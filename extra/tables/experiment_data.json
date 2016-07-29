@@ -1,0 +1,30 @@
+{
+	"schema_name":"jarvis",
+	"table_name":"experiment_data",
+	"comment":"where experiment data is held",
+	"annotations": {},
+	"column_definitions": [{"comment":{},"default":{},"type":{"typename":"int4"},
+				"annotations":{},"name":"experiment_id"},
+				{"comment":{},"default":{},"type":{"typename":"text"},
+				"annotations":{},"name":"user"},{"comment":{},"default":{},
+				"type":{"typename":"text"},"annotations":{},"name":"experiment"},
+				{"comment":{},"default":{},"type":{"typename":"text"},"annotations":{},
+				"name":"start_date"},{"comment":{}, "default":{}, "type": 
+				{"typename": "text"}, "annotations": {}, "name": "end_date"}, 
+				{"comment":{}, "default":{}, "type": {"typename": "text"}, 
+				"annotations": {}, "name": "states_completed"}, 
+				{"comment":{}, "default":{}, "type": {"typename": "text"}, 
+				"annotations": {}, "name": "gel_type"}, {"comment":{}, "default": 0, 
+				"type": {"typename": "int4"}, "annotations": {}, "name": "sample_count"}, 
+				{"comment":{},"default":{},"type":{"typename":"text"},"annotations":{},
+				"name":"samples"},{"comment":{},"default":{},"type":{"typename":"text"},
+				"annotations":{},"name":"well_numbers"},
+				{"comment":{}, "default":{}, "type": {"typename": "text"}, 
+				"annotations": {}, "name": "power_supply_start_time"}, 
+				{"comment":{}, "default":{}, "type": {"typename": "text"}, 
+				"annotations": {}, "name": "power_supply_end_time"}],
+	"keys":[{"comment":{},"annotations":{},"unique_columns":["user","experiment_id"]}],
+	"foreign_keys":[],
+	"kind":"table"
+}
+

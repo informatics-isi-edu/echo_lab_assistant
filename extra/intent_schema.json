@@ -1,0 +1,174 @@
+{
+	"intents": [
+		{
+			"intent": "LoginIntent",
+			"slots":[
+				{
+					"name": "UserName",
+					"type": "LIST_OF_USERS"
+				}
+				]
+		},
+		{
+			"intent": "GetUserNameIntent",
+			"slots":[]
+		},
+		{
+			"intent": "GetEIDIntent",
+			"slots":[]
+		},
+		{
+			"intent": "GetStartDateIntent",
+			"slots":[]
+		},
+		{
+			"intent": "GetEndDateIntent",
+			"slots":[]
+		},
+		{
+			"intent": "GetSampleCountIntent",
+			"slots":[]
+		},
+		{
+			"intent": "GetWellSampleAssignmentIntent",
+			"slots":[
+				{
+					"name": "WellNumber",
+					"type": "WELL_TYPE"
+				}
+				]
+		},
+		{
+			"intent": "GetSampleWellAssignmentIntent",
+			"slots":[
+				{
+					"name": "SampleType",
+					"type": "SAMPLE_TYPE"
+				}
+				]
+		},
+		{
+			"intent": "LogoutIntent",
+			"slots":[]
+		},
+		{
+			"intent": "ExperimentOpenIntent",
+			"slots":[
+				{
+					"name":"EID",
+					"type": "ID"
+				}
+				]
+		},
+		{
+			"intent": "ExperimentCloseIntent",
+			"slots":[]
+		},
+		{
+			"intent": "ExperimentStartIntent",
+			"slots": []
+		},
+		{
+			"intent": "ExperimentSelectionIntent",
+			"slots": [
+				{
+					"name": "ExperimentName",
+					"type": "LIST_OF_EXPERIMENT"
+				},
+				{
+					"name":"EID",
+					"type":"ID"
+				}
+				]
+		},
+		{
+			"intent": "ExperimentGelSelectionIntent",
+			"slots": [
+				{
+					"name": "GelName",
+					"type": "LIST_OF_GELS"
+				}
+				]
+		},
+		{
+			"intent": "ExperimentGelMixtureStartIntent",
+			"slots":[]
+		},
+		{
+			"intent": "ExperimentGelMixtureEndIntent",
+			"slots":[]
+		},
+		{
+			"intent": "ExperimentGelMixtureDoneIntent",
+			"slots":[]
+		},
+		{
+			"intent": "ExperimentLoadingGelStartIntent",
+			"slots":[]
+		},
+		{
+			"intent": "ExperimentLoadingWellCountIntent",
+			"slots":[
+				{
+					"name": "WellCount",
+					"type": "WELL_TYPE"
+				}
+				]
+		},
+		{
+			"intent": "ExperimentLoadingSampleAssignmentIntent",
+			"slots":[
+			{
+				"name": "SampleType",
+				"type": "SAMPLE_TYPE"
+			},
+			{
+				"name": "WellNumber",
+				"type": "WELL_TYPE"
+			}
+			]
+		},
+		{
+			"intent": "ExperimentLoadingSampleAssignmentMultiIntent",
+			"slots": [
+			{
+				"name": "SampleType",
+				"type": "SAMPLE_TYPE"
+			},
+			{
+				"name": "WellNumber",
+				"type": "WELL_TYPE"
+			},
+			{
+				"name": "SampleTypeTwo",
+				"type": "SAMPLE_TYPE"
+			},
+			{
+				"name": "WellNumberTwo",
+				"type": "WELL_TYPE"
+			}
+			]
+		},
+		{
+			"intent": "ExperimentLoadingGelDoneIntent",
+			"slots":[]
+		},
+		{
+			"intent": "ExperimentPowerSupplyStartIntent",
+			"slots":[]
+		},
+		{
+			"intent": "ExperimentPowerSupplyCheckIntent",
+			"slots":[]
+		},
+		{
+			"intent": "ExperimentPowerSupplyEndIntent",
+			"slots":[]
+		},
+		{
+			"intent": "ExperimentEndIntent",
+			"slots":[]
+		}
+	]
+}
+	

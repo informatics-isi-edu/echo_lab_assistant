@@ -1,0 +1,15 @@
+{
+	"schema_name":"jarvis",
+	"table_name":"session_info",
+	"comment":"the table that will contain all data from current user session",
+	"annotations": {},
+	"column_definitions": [{"comment":{},"default":{},"type":{"typename":"text"},
+				"annotations":{},"name":"user"},{"comment":{},"default":{},
+				"type":{"typename":"text"},"annotations":{},"name":"jarvis_response"},
+				{"comment":{},"default":{},"type":{"typename":"int4"},"annotations":{},
+				"name":"current_experiment_id"}],
+	"keys":[{"comment":{},"annotations":{},"unique_columns":["user","current_experiment_id"]}],
+	"foreign_keys":[],
+	"kind":"table"
+}
+
