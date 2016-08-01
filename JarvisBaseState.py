@@ -82,7 +82,12 @@ class JarvisBaseState(object):
 			data = {"completed_step":None}
 
 		data['completed_step'] = new_step
-		self._ermrest.put_data(7,"step_completed",data)
+		try:
+			self._ermrest.put_data(7,"step_completed",data)
+			return True
+		except Exception as exc:
+			print(str(exc))
+			return False
 
 	def _clear(self,table_name):
 		#clears a table

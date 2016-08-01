@@ -118,11 +118,11 @@ class LoginState(JarvisBaseState):
 	
 	def handle_input(self):
 		print("in login")
-		username = self._get_slot_value("UserName",self._request).lower()
+		username = self._get_slot_value("UserName",self._request)
 		if (username):
 			self._speech_output = "Hello {}. Your session has begun".format(username)
 			self._set_session_data("jarvis_response",self._speech_output)
-			self._set_session_data("user",username)
+			self._set_session_data("user",username.lower())
 			return "ReturnState"
 		else:
 			self._speech_output = "No user is logged in at the moment. Please provide your username and your session will begin."

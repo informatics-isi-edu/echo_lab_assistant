@@ -81,6 +81,7 @@ class DataRetrieval(object):
 			new_date += "Saturday "
 		elif time_date[0] == "Sun":
 			new_date += "Sunday "
+		print(new_date)
 		
 		#Adds month to new_date
 		if time_date[1] == "Jan":
@@ -107,15 +108,17 @@ class DataRetrieval(object):
 			new_date += "November "
 		elif time_date[1] == "Dec":
 			new_date += "December "
+		print(new_date)
 
-		#Adds day to new_date
-		new_date += num2words(int(time_date[2]))+", "
-		
+		#Add day to new_date
+		new_date += num2words(int(time_date[3]))+", "
+
 		#Adds year to new_date
-		new_date += num2words(int(time_date[4]))+", "
+		new_date += num2words(int(time_date[5]))+", "
+		print(new_date)
 		
 		#Adds time to new_date
-		date_time = time_date[3].split(":")
+		date_time = time_date[4].split(":")
 		past_noon = False
 
 		if int(date_time[0]) > 12: #convert 24 hour time to 12 hour time
@@ -125,11 +128,12 @@ class DataRetrieval(object):
 		for number in range(len(date_time)):
 			date_time[number] = num2words(int(date_time[number])) 
 
-		new_date += " ".join(date_time[0:2])
+		new_date += " ".join(date_time)
 		if past_noon:
 			new_date += " PM"
 		else:
 			new_date += " AM"
 
 		#return
+		print(new_date)
 		return new_date
