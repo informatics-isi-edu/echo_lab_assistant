@@ -14,3 +14,4 @@ Jarvis is stored in the ERMrest relational database: (https://github.com/informa
 Clone Jarvis to your machine, then run the create deployment script. That should create a zip file which you can upload to 
 AWS Lambda. Create an AWS Lambda project and link it to the AlexaSkillsKit. Enable this skill for your account and your free to
 use Jarvis as you please.
+For the BluetoothLogin feature, go to: https://github.com/arstevens/BluetoothLogin
