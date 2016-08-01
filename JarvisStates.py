@@ -182,11 +182,13 @@ class ValidateState(JarvisBaseState):
 		valid_intents = None
 		
 		if (last_step != None):
+			print("in last step not none")
 			#if a step is completed get the possible next steps
 			valid_intents = self._possible_intent_mappings[last_step]
 
 		elif (last_step == None):
 			#if no steps have been completed
+			print(intent_name)
 			if (intent_name == "ExperimentStartIntent"):
 				return "IntentState"
 
@@ -199,7 +201,7 @@ class ValidateState(JarvisBaseState):
 					return "ReturnState"
 				return "IntentState"
 			else:
-				self._speech_output = "Your input was invalid."
+				self._speech_output = "Your input was invalid"
 				self._set_session_data("jarvis_response",self._speech_output)
 				return "ReturnState"
 
