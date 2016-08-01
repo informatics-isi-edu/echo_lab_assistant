@@ -6,23 +6,42 @@ GetStartDateIntent When did i start this experiment
 GetEndDateIntent When did i finish this experiment
 GetSampleCountIntent How many samples did i experiment with
 GetWellSampleAssignmentIntent What sample was in well {WellNumber}
+GetWellSampleAssignmentIntent What sample was in well number {WellNumber}
 GetSampleWellAssignmentIntent What well was assigned to sample {SampleType}
 ExperimentCloseIntent Close this experiment
 ExperimentOpenIntent Open experiment number {EID}
 ExperimentStartIntent I am going to start an experiment
-ExperimentSelectionIntent I am starting {ExperimentName} and the id is {EID}
+ExperimentStartIntent I am starting an experiment
+ExperimentStartIntent I want to start an experiment
+ExperimentSelectionIntent I am starting {ExperimentName} and the ID is {EID}
+ExperimentSelectionIntent I am going to start {ExperimentName} with an experiment ID of {EID}
+ExperimentSelectionIntent I am going to start {ExperimentName} and the ID is {EID}
 ExperimentGelSelectionIntent It will be a {GelName} based Gel
+ExperimentGelSelectionIntent It is a {GelName} based Gel
+ExperimentGelSelectionIntent It is a {GelName} Gel
 ExperimentGelMixtureStartIntent I have mixed the agar with water and kept it to boil
+ExperimentGelMixtureStartIntent I have mixed the agar with water
+ExperimentGelMixtureStartIntent I have prepared the gel 
 ExperimentGelMixtureEndIntent The mixture seems to be ready
 ExperimentGelMixtureEndIntent The gel is mixed and is ready to be used
+ExperimentGelMixtureEndIntent The gel is ready to be used 
 ExperimentLoadingGelStartIntent I am going to load samples in the well
+ExperimentLoadingGelStartIntent I am loading samples in the well
+ExperimentLoadingGelStartIntent I will load samples in the well now 
 ExperimentLoadingWellCountIntent There are {WellCount} samples
-ExperimentLoadingWellCountIntent {WellCount} samples
+ExperimentLoadingWellCountIntent {WellCount} samples 
 ExperimentLoadingSampleAssignmentIntent Assign sample {SampleType} to well {WellNumber}
 ExperimentLoadingSampleAssignmentIntent Sample {SampleType} is assigned to well {WellNumber}
 ExperimentLoadingSampleAssignmentMultiIntent Assign sample {SampleType} to well {WellNumber} and {SampleTypeTwo} to well {WellNumberTwo}
+ExperimentLoadingSampleAssignmentMultiIntent Assign sample {SampleType} to well {WellNumber} and sample {SampleTypeTwo} to well {WellNumberTwo}
 ExperimentLoadingGelDoneIntent I have loaded the gel in the electrophoresis chamber
+ExperimentLoadingGelDoneIntent The gel is loaded in the electrophoresis chamber
+ExperimentLoadingGelDoneIntent I have finished loading the gel in the electrophoresis chamber 
 ExperimentPowerSupplyStartIntent I have started the power supply
+ExperimentPowerSupplyStartIntent The power supply has been started 
 ExperimentPowerSupplyCheckIntent Can I turn off the power supply
 ExperimentPowerSupplyEndIntent I have turned off the power supply
+ExperimentPowerSupplyEndIntent The power supply has been turned off 
 ExperimentEndIntent I have recorded the readings and cleaned up
+ExperimentEndIntent I have finished this experiment
+ExperimentEndIntent The experiment is finished 
