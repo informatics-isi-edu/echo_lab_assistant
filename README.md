@@ -8,7 +8,7 @@ Jarvis is your personal assistant in the lab. He will tell you the steps to an e
 ## How it Works
 Jarvis knows what you want him to do by assigning certain key phrases and sentences to intents which Alexa passes to our program
 for further processing and then builds a response to pass back to the Echo and then on too you. All the data that you input into
-Jarvis is stored in the ERMrest relational database: (https://github.com/informatics-isi-edu/ermrest)
+Jarvis is stored in ERMrest: (https://github.com/informatics-isi-edu/ermrest)
 
 ## How to Install
 Clone Jarvis to your machine, then run the create deployment script. That should create a zip file which you can upload to 
