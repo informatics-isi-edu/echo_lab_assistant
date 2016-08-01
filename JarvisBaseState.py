@@ -16,7 +16,7 @@ class JarvisBaseState(object):
 	@abc.abstractmethod
 	def handle_input(self):
 		"""The handle_input method will be the method called by the StateHandler. 
-			States must return the name of the state to switch too.
+			handle_input must return the name of the state to switch too.
 			The only state which returns a value other than that is the ReturnState 
 			which returns the text for Alexa to say to the user.""" 
 		return
@@ -60,7 +60,7 @@ class JarvisBaseState(object):
 		try:
 			current_user = self._ermrest.get_data(7,"session_info")[0]['user']
 		except:
-			current_user = None	
+			current_user = None
 		return current_user
 	
 	def _set_session_data(self,column,new_data):
@@ -86,7 +86,7 @@ class JarvisBaseState(object):
 
 	def _clear(self,table_name):
 		#clears a table
-		clean_data = self._ermrest.get_data(7,table_name,"")[0]
+		clean_data = self._ermrest.get_data(7,table_name)[0]
 		for key in clean_data:
 			clean_data[key] = None
 

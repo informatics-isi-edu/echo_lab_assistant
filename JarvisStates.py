@@ -35,7 +35,6 @@ class GetIntentState(JarvisBaseState):
 		self._ermrest = ermrest
 		self._open_close_states = ['ExperimentOpenIntent','ExperimentCloseIntent']
 		print("initiated getintent")
-
 	
 	def handle_input(self):
 		print("In GetIntentState")
@@ -49,14 +48,10 @@ class GetIntentState(JarvisBaseState):
 			if (current_user):
 				self._speech_output = "The current user is, {}".format(current_user)
 				self._set_session_data("jarvis_response",self._speech_output)
-			else:
-				self._speech_output = "No user is logged in at the moment."
-				self._set_session_data("jarvis_response",self._speech_output)
 
 			return "ReturnState"
 
 		elif intent_name == "LoginIntent":
-			print("In login intent")
 			self._speech_output = "A user is already logged in. Please log that user out before proceding"
 			self._set_session_data("jarvis_response",self._speech_output)
 			return "ReturnState"
@@ -172,7 +167,8 @@ class ValidateState(JarvisBaseState):
 							"ExperimentLoadingSampleAssignmentMultiIntent",
 							"ExperimentLoadingGelDoneIntent"],
 					'gel-loading-end':["ExperimentPowerSupplyStartIntent"],
-					'power-start':["ExperimentPowerSupplyEndIntent","ExperimentPowerSupplyCheckIntent"],
+					'power-start':["ExperimentPowerSupplyEndIntent",
+							"ExperimentPowerSupplyCheckIntent"],
 					'power-end':["ExperimentEndIntent"],
 					'exp-end':["GetEIDIntent","GetStartDateIntent","GetEndDateIntent",
 						"GetSampleCountIntent","GetWellSampleAssignmentIntent",
@@ -195,11 +191,9 @@ class ValidateState(JarvisBaseState):
 				return "IntentState"
 
 			elif (intent_name == "ExperimentSelectionIntent"):
-				id_number = int(self._get_slot_value("EID",self._request))
-				print(id_number)
 				#checks if the experiment id has already been taken
+				id_number = int(self._get_slot_value("EID",self._request))
 				if (self._is_id_taken(id_number)):
-					print("in true!")
 					self._speech_output = "The expeirment id you chose is already taken"
 					self._set_session_data("jarvis_response",self._speech_output)
 					return "ReturnState"
@@ -304,7 +298,7 @@ class IntentState(JarvisBaseState):
 				self._speech_output = "Experiment {} has been loaded".format(str(self._experiment_id))
 
 		else:
-			#if the request is a retrieve intent, run these
+			#if the request is a get intent, run these
 			if self._intent == "GetEIDIntent":
 				self._speech_output = self._data_retriever.get_experiment_id_intent()
 			elif self._intent == "GetStartDateIntent":
