@@ -31,8 +31,14 @@ class GelElectrophoresis(object):
 	def add_item(self, data, item):
 		#adds item to a list 
 		#Lists that use add_item: states_completed,samples,well_numbers
+
+		#Alexa sometimes inputs a period after single characters
+		if (item.find(".") != -1):
+			item = item.replace(".","")
+
 		if data is None or len(data) == 0:
 			data = [item]
+
 		else:
 			data = data.split(',')
 			data.append(item)
@@ -44,7 +50,7 @@ class GelElectrophoresis(object):
 		#Lists that can use this: well_numbers,samples,states_completed
 		if data is None or len(data) == 0:
 			return False
-		
+	
 		data_list = data.split(',')
 
 		if item in data_list:
@@ -126,7 +132,6 @@ class GelElectrophoresis(object):
 		#checks if you have already loaded all the samples or not
 		#if yes, returns response saying you have already loaded all samples
 		if (amount_of_samples_used >= sample_count):
-			print("too big!")
 			return "You have already loaded all the samples. Please continue the experiment."
 
 		#Checks to see if the provided sample or well number have already been loaded
