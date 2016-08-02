@@ -313,7 +313,7 @@ class IntentState(JarvisBaseState):
 				well_number = self._get_slot_value("WellNumber",self._request)
 				self._speech_output = self._data_retriever.get_well_sample_assignment_intent(well_number)
 			elif self._intent == "GetSampleWellAssignmentIntent":
-				sample = self._get_slot_value("SampleType",self._request).upper() #Must be upper case for correct pronounciation
+				sample = str(self._get_slot_value("SampleType",self._request)).upper() #Must be upper case for correct pronounciation
 				self._speech_output = self._data_retriever.get_sample_well_assignment_intent(sample)
 
 		#Set the output response for ReturnState and set the completed step
