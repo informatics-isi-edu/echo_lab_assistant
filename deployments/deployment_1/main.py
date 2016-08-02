@@ -1,5 +1,5 @@
-import logging
 from AlexaJarvisHandler import AlexaJarvisHandler
+import logging
 
 """
 Main entry point for the Lambda function.

@@ -1,7 +1,7 @@
 #===================================Imports===================================================
+from GelElectrophoresis import GelElectrophoresis
 from JarvisBaseState import JarvisBaseState
 from ErmrestHandler import ErmrestHandler
-from GelElectrophoresis import GelElectrophoresis
 from DataRetrieval import DataRetrieval
 import re
 #===================================Authenticate==============================================
@@ -48,7 +48,6 @@ class GetIntentState(JarvisBaseState):
 			if (current_user):
 				self._speech_output = "The current user is, {}".format(current_user)
 				self._set_session_data("jarvis_response",self._speech_output)
-
 			return "ReturnState"
 
 		elif intent_name == "LoginIntent":
@@ -66,7 +65,7 @@ class GetIntentState(JarvisBaseState):
 class ExperimentOpenCloseState(JarvisBaseState):
 	
 	def __init__(self,request,session,ermrest):
-		#Loads an experiment if the user wishes to.
+		#Loads or Closes an experiment if the user wishes to.
 		#Continues from the point the user left off if incomplete.
 		super(self.__class__,self).__init__()
 		self._request = request
@@ -182,13 +181,11 @@ class ValidateState(JarvisBaseState):
 		valid_intents = None
 		
 		if (last_step != None):
-			print("in last step not none")
 			#if a step is completed get the possible next steps
 			valid_intents = self._possible_intent_mappings[last_step]
 
 		elif (last_step == None):
 			#if no steps have been completed
-			print(intent_name)
 			if (intent_name == "ExperimentStartIntent"):
 				return "IntentState"
 
@@ -217,8 +214,7 @@ class ValidateState(JarvisBaseState):
 	def _get_completed_step(self):
 		#gets the previous step the user completed
 		try:
-			last_step = self._ermrest.get_data(7,"step_completed")[0]
-			last_step = last_step['completed_step']
+			last_step = self._ermrest.get_data(7,"step_completed")[0]['completed_step']
 		except:
 			last_step = None
 		
@@ -336,7 +332,7 @@ class IntentState(JarvisBaseState):
 		elif (self._intent == "ExperimentSelectionIntent" or
 			self._intent == "ExperimentOpenIntent"):
 			eid = int(self._get_slot_value("EID",self._request))
-			self._set_session_data("current_experiment_id",eid)
+			self._set_session_data("current_experiment_id",eid) #First time the EID is provided so must log it
 
 		else:
 			eid = ermrest.get_data(7,"session_info")[0]['current_experiment_id']

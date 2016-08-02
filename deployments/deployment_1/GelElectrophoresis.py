@@ -31,8 +31,14 @@ class GelElectrophoresis(object):
 	def add_item(self, data, item):
 		#adds item to a list 
 		#Lists that use add_item: states_completed,samples,well_numbers
+
+		#Alexa sometimes inputs a period after single characters
+		if (item.find(".") != -1):
+			item = item.replace(".","")
+
 		if data is None or len(data) == 0:
 			data = [item]
+
 		else:
 			data = data.split(',')
 			data.append(item)
@@ -44,7 +50,7 @@ class GelElectrophoresis(object):
 		#Lists that can use this: well_numbers,samples,states_completed
 		if data is None or len(data) == 0:
 			return False
-		
+	
 		data_list = data.split(',')
 
 		if item in data_list:
@@ -52,7 +58,7 @@ class GelElectrophoresis(object):
 		return False
 
 	def reset_user_data(self):
-		#resets the experiment data so their are no duplicate lists
+		#resets the experiment data so their are no duplicate experimnts 
 		try:
 			self._ermrest.delete_data(self._catalog,self._table_name,"/user="+self.user+
 							"/experiment_id="+str(self._experiment_id))
@@ -65,7 +71,7 @@ class GelElectrophoresis(object):
 		return "Hello "+self.user+" Which experiment are you going to start"
 
 	def experiment_selection_intent(self, experiment_name):
-		#grabs time from los angeles.
+		#grabs time from los angeles. The location of where this code is being hosted is unknown
 		l_time = requests.get("http://api.worldweatheronline.com/premium/v1/tz.ashx?key=9174f59cefa9423ca61203623162807&q=Los+Angeles&format=xml")
 		l_time = str((l_time.text.split("<localtime>")[1]).split("</localtime>")[0]).split(" ")[1]
 		local_time = list(time.localtime(time.time()))
@@ -126,7 +132,6 @@ class GelElectrophoresis(object):
 		#checks if you have already loaded all the samples or not
 		#if yes, returns response saying you have already loaded all samples
 		if (amount_of_samples_used >= sample_count):
-			print("too big!")
 			return "You have already loaded all the samples. Please continue the experiment."
 
 		#Checks to see if the provided sample or well number have already been loaded

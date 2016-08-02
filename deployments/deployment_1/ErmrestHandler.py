@@ -3,7 +3,7 @@ import json
 
 
 class ErmrestHandler(object):
-	#A class the interacts with the ERMrest web based storage service.
+	#A class the interacts with ERMrest
 	#Allows you to create schemas,tables etc. and to store and pull data 
 	#from the database for further use.
     	def __init__(self, host, username, password):
@@ -73,7 +73,6 @@ class ErmrestHandler(object):
 
     	def put_data(self, catalog_id, table_name, data):
 		#data must be in a python dict type and in the correct table format.
-		#see the README for more information.
         	data = [data]
         	r = requests.put("http://"+self.host+"/ermrest/catalog/"+str(catalog_id)+"/entity/"+table_name,
                          	json=data, cookies=self._cookie)

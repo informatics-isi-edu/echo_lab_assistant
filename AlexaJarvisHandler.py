@@ -35,8 +35,7 @@ class AlexaJarvisHandler(AlexaBaseHandler):
 		return self.on_launch(request, session)
 
 	def on_intent(self, request, session):
-		#runs state machine to handle intents and store data
-		#in the ermrest relational database.
+		#runs state machine to handle intents 
 		self.logger.info("on_intent")
 		session_attributes = self._get_session_attribute(session)
 		jarvis_state_handler = JarvisStateHandler(request,session,self._ermrest)

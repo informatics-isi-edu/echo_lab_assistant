@@ -86,7 +86,7 @@ class JarvisBaseState(object):
 			self._ermrest.put_data(7,"step_completed",data)
 			return True
 		except Exception as exc:
-			print(str(exc))
+			print('[!] ERROR: '+str(exc))
 			return False
 
 	def _clear(self,table_name):

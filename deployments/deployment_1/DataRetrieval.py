@@ -60,10 +60,7 @@ class DataRetrieval(object):
 	
 	def _epoch_to_time(self,timestamp):
 		#creates and returns a speakable version of the date for alexa
-		print("in epoch")
-		print(timestamp)
 		time_date = timestamp.split(" ") 
-		print(time_date)
 		new_date = ""
 
 		#Adds day of the week to new_date
@@ -81,7 +78,6 @@ class DataRetrieval(object):
 			new_date += "Saturday "
 		elif time_date[0] == "Sun":
 			new_date += "Sunday "
-		print(new_date)
 		
 		#Adds month to new_date
 		if time_date[1] == "Jan":
@@ -108,14 +104,12 @@ class DataRetrieval(object):
 			new_date += "November "
 		elif time_date[1] == "Dec":
 			new_date += "December "
-		print(new_date)
 
 		#Add day to new_date
 		new_date += num2words(int(time_date[3]))+", "
 
 		#Adds year to new_date
 		new_date += num2words(int(time_date[5]))+", "
-		print(new_date)
 		
 		#Adds time to new_date
 		date_time = time_date[4].split(":")
@@ -135,5 +129,4 @@ class DataRetrieval(object):
 			new_date += " AM"
 
 		#return
-		print(new_date)
 		return new_date
