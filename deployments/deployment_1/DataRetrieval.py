@@ -41,6 +41,7 @@ class DataRetrieval(object):
 	
 	def get_sample_well_assignment_intent(self,sample):
 		#gets well assigned to sample that was provided and constructs response
+		sample = sample[0]
 		well_numbers = self._get_experiment_data("well_numbers")
 		samples = self._get_experiment_data("samples")
 		sample_index = samples.find(sample)
