@@ -12,6 +12,7 @@ class JarvisBaseState(object):
 		self._speech_output = "Jarvis speech output"
 		self._reprompt_text = "Sorry. I didn't get that"
 		self._ermrest = "Ermrest Handler goes here" 
+		self._EMPTY = [[],{},(),None]
 	
 	@abc.abstractmethod
 	def handle_input(self):
@@ -30,9 +31,10 @@ class JarvisBaseState(object):
 		return intent 
 
 	def _get_intent_name(self, intent_request):
-		intent = self._get_intent(intent_request)
 		intent_name = None
-		if intent is not None and 'name' in intent:
+		intent = self._get_intent(intent_request)
+
+		if intent not in self._EMPTY and 'name' in intent:
 			intent_name = intent['name']
 
 		return intent_name
@@ -40,38 +42,43 @@ class JarvisBaseState(object):
 	def _slot_exists(self, slot_name, intent_request):
 		exists = False
 		intent = self._get_intent(intent_request)
-		if intent:
+
+		if 'slots' in intent: 
 			exists = slot_name in intent['slots']
 		
 		return exists
 
 	def _get_slot_value(self, slot_name, intent_request):
 		value = None
-		try:
-			if self._slot_exists(slot_name, intent_request):
-				intent = self._get_intent(intent_request)
+
+		if self._slot_exists(slot_name, intent_request):
+
+			intent = self._get_intent(intent_request)
+			if (intent not in self._EMPTY):
 				value = intent['slots'][slot_name]['value']
-			else:
-				value = None
-        	except Exception as exc:
-            		print("Error getting slot value for slot_name={0}".format(slot_name))
 
         	return value
 	
 	def _get_current_user(self):
-		try:
-			current_user = self._ermrest.get_data(7,"session_info")[0]['user']
-		except:
-			current_user = None
+		current_user = None
+
+		current_user = self._ermrest.get_data(7,"session_info")
+		if (current_user not in self._EMPTY):
+			current_user = current_user[0]['user']
+
 		return current_user
 	
 	def _set_session_data(self,column,new_data):
 		success = False
 		current_data = self._ermrest.get_data(7,"session_info")[0]
+		print("got data")
 		current_data[column] = new_data
+		print("set column")
+
 		try:
 			self._ermrest.delete_data(7,"session_info")
 			self._ermrest.put_data(7,"session_info",current_data)
+			print("succes")
 			success = True
 		except Exception as exc:
 			print("[!] ERROR: "+str(exc))
@@ -81,12 +88,15 @@ class JarvisBaseState(object):
 	def _set_completed_step(self,new_step):
 		success = False
 		data = {"completed_step":new_step}
+		
 		try:
 			self._ermrest.delete_data(7,"step_completed")
 		except:
 			pass
+
 		try:
 			self._ermrest.put_data(7,"step_completed",data)
+			print("put data success")
 			success = True
 		except Exception as exc:
 			print('[!] ERROR: '+str(exc))
@@ -97,6 +107,7 @@ class JarvisBaseState(object):
 		#clears a table
 		success = False
 		clean_data = self._ermrest.get_data(7,table_name)[0]
+
 		for key in clean_data:
 			clean_data[key] = None
 
@@ -105,23 +116,30 @@ class JarvisBaseState(object):
 			self._ermrest.put_data(7,table_name,clean_data)
 			success = True
 		except Exception as exc:
-			print(str(exc))
-			success = False
+			print("[!] ERROR: "+str(exc))
 
 		return success
 
 	def _get_last_step(self,experiment_id):
-		experiment = self._ermrest.get_data(7,"experiment_data","/experiment_id="+str(experiment_id))[0]
+		query = "/user="+str(self._get_current_user())+"/experiment_id="+str(experiment_id)
+		print("made query")
+		experiment = self._ermrest.get_data(7,"experiment_data",query)[0]
+		print("got experiment")
+
 		steps = experiment['states_completed'].split(",")
+		print("got steps",steps)
 		last_step = steps[len(steps)-1]
+		print("got last step YESS",last_step)
+
 		return last_step
 
 
 	def _get_experiment(self,experiment_id):
 		experiment = dict() 
 		experiment_id = str(experiment_id)
-		user = str(self._get_current_user())
+		user = self._get_current_user()
 		query = "/user="+user+"/experiment_id="+experiment_id
+
 		try:
 			experiment = self._ermrest.get_data(7,"experiment_data",query)
 		except Exception as exc:

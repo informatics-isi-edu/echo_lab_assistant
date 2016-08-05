@@ -37,7 +37,6 @@ class GetIntentState(JarvisBaseState):
 		print("initiated getintent")
 	
 	def handle_input(self):
-		print("In GetIntentState")
 		intent_name = self._get_intent_name(self._request)
 
 		if intent_name == "LogoutIntent":
@@ -45,7 +44,7 @@ class GetIntentState(JarvisBaseState):
 
 		elif intent_name == "GetUserNameIntent":
 			current_user = self._get_current_user()
-			if (current_user):
+			if (current_user not in self._EMPTY):
 				self._speech_output = "The current user is, {}".format(current_user)
 				self._set_session_data("jarvis_response",self._speech_output)
 			return "ReturnState"
@@ -76,6 +75,7 @@ class ExperimentOpenCloseState(JarvisBaseState):
 		print('initiated get experiment')
 
 	def handle_input(self):
+		print("in experiment open close state")
 		if self._intent == "ExperimentOpenIntent":
 			return_value = self._experiment_open()
 		else:
@@ -117,6 +117,7 @@ class LoginState(JarvisBaseState):
 	
 	def handle_input(self):
 		print("in login")
+
 		username = self._get_slot_value("UserName",self._request)
 		if (username):
 			self._speech_output = "Hello {}. Your session has begun".format(username)
