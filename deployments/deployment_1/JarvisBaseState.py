@@ -71,14 +71,11 @@ class JarvisBaseState(object):
 	def _set_session_data(self,column,new_data):
 		success = False
 		current_data = self._ermrest.get_data(7,"session_info")[0]
-		print("got data")
 		current_data[column] = new_data
-		print("set column")
 
 		try:
 			self._ermrest.delete_data(7,"session_info")
 			self._ermrest.put_data(7,"session_info",current_data)
-			print("succes")
 			success = True
 		except Exception as exc:
 			print("[!] ERROR: "+str(exc))
@@ -96,7 +93,6 @@ class JarvisBaseState(object):
 
 		try:
 			self._ermrest.put_data(7,"step_completed",data)
-			print("put data success")
 			success = True
 		except Exception as exc:
 			print('[!] ERROR: '+str(exc))
@@ -122,14 +118,10 @@ class JarvisBaseState(object):
 
 	def _get_last_step(self,experiment_id):
 		query = "/user="+str(self._get_current_user())+"/experiment_id="+str(experiment_id)
-		print("made query")
 		experiment = self._ermrest.get_data(7,"experiment_data",query)[0]
-		print("got experiment")
 
 		steps = experiment['states_completed'].split(",")
-		print("got steps",steps)
 		last_step = steps[len(steps)-1]
-		print("got last step YESS",last_step)
 
 		return last_step
 

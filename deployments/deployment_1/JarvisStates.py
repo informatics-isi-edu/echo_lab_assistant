@@ -142,8 +142,12 @@ class LogoutState(JarvisBaseState):
 	
 	def handle_input(self):
 		print("in logout state")
-		self._clear("session_info")
-		self._clear("step_completed")
+		try:
+			self._clear("session_info")
+			self._clear("step_completed")
+		except:
+			pass
+
 		return "ReturnState"
 		
 #===================================Validate==============================================
