@@ -1,5 +1,5 @@
 # JarvisStates File
-A file containing all of the Jarvis States.
+A file containing concrete implementations of the JarvisBaseState
 
 ## AuthenticateState Class
 Checks if their is a user currently logged in.
@@ -8,11 +8,10 @@ it transtitions to the GetIntentState
 
 ## GetIntentState Class
 Gets the users intent and then redirects the request to the proper
-state.
+state. Any Experiment or Get intents go to validate and are redirected later by IntentState.
 
 ## ExpeirmentOpenCloseState Class
-Get here from the GetIntentState. Either opens or
-closes and experiments based on the users intent.
+Either opens or closes an experiment based on the users intent.
 If Opened, can return IntentState if successfull or ReturnState
 if unsuccessfull. If Experiment close intent then always returns ReturnState.
 
@@ -29,7 +28,7 @@ Checks if the intent is valid based on your previous actions. Can return either 
 it is an error or IntentState if it is valid.
 
 ## IntentState
-Calls the correct method based on the users Intent. Can be either an Experiment Intent or a Get Intent
+Calls the correct method based on the users Intent. Can be either an Experiment Intent or a Get Intent.
 Always returns ReturnState
 
 ## ReturnState

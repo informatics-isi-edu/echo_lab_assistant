@@ -30,7 +30,7 @@ specified table if no extra_info is passed in. extra info must be of type string
 
 examples:
  - ErmrestHandler.get_data(7,"experiment_data","/user=Joe/experiment_id=5")
- - ErmrestHandler.get_data(7,"session_info","/current_user=Bob/jarvis_response=Hello Bob")
+ - ErmrestHandler.get_data(7,"session_info","/current_user=Bob/jarvis_response=Hello")
 
 ## delete_data(catalog_id,table_name,extra_info="") method
 Deletes the specified data. Will clear the whole tables if no extra info 

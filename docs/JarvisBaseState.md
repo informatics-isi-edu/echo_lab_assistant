@@ -5,6 +5,6 @@ Abstract Base Class for a Jarvis State.
 the only method called by the JarvisStateHandler. returns the Name of the next state
 the majority of the time.
 
-## Helper Methods (group of methods)
+## Helper Methods
 Methods that more than one state need to call upon. 
-Return value varies
+Return value varies. See JarvisBaseState for more information

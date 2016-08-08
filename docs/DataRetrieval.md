@@ -6,7 +6,7 @@ Gets data from the colum provided out of the 'experiment_data' table based on th
 username provided in the constructor.
 
 ## _epoch_to_time(timestamp) method
-receives a timestamp created from 'time.asctime(time.localtim(time.time()))' and creates a 
+receives a timestamp created from 'time.asctime(time.localtime(time.time()))' and creates a 
 speakable phrase for alexa to say. Uses the num2words library to turn numbers to words
 
 ## get_experiment_id_intent() method
@@ -25,7 +25,7 @@ Gets the amount of samples experimented with and returns it in an alexa
 readable way
 
 ## get_well_sample_assignment_intent(well_number) method
-Finds the sample that was assigned to the well_number variable during the experiment
+Finds the sample that was assigned to the well_number variable during the experiment.
 returns an alexa readable phrase telling what sample was assigned to that well
 
 ## get_sample_well_assignment_intent(sample) method
