@@ -23,7 +23,7 @@ for your retrieval in the future.
 1. On the 'Triggers' tab click 'Alexa Developer Portal'. (Copy the ARN in the top right corner)
 1. Press 'Alexa Skills Kit' then click 'Add a new Skill'
 1. Name the skill, then set the 'invocation name' to 'Jarvis'. Click Next
-1. In the 'extra' folder open 'sample_utterances.txt','genie_intent_schema' and 'custom slot types'.
+1. In the 'Interaction_Model' folder open 'sample_utterances.txt','genie_intent_schema' and 'custom slot types'.
 1. Set the corresponding sections to the text in the files. Click Next
 1. Chose 'Lambda ARN' for 'endpoint*' and paste your functions ARN in the space provided. Click Next
 
@@ -41,7 +41,6 @@ Once the session has started, the user can do a few things.
  - Logout
 
 Voice Commands
- - All voice commands Jarvis understands can be found in the 'sample_utterances.txt' file. (in extra folder)
+ - All voice commands Jarvis understands can be found in the 'sample_utterances.txt' file. (in 'Interaction_Model' folder)
  - Any word enclosed in {} are key words that the user must provides.
  - The text presented before the phrase is not be said. It is their only for the Lambda functions use. (signifies intent)
-
