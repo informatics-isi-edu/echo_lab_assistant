@@ -43,4 +43,5 @@ Once the session has started, the user can do a few things.
 Voice Commands
  - All voice commands Jarvis understands can be found in the 'sample_utterances.txt' file. (in extra folder)
  - Any word enclosed in {} are key words that the user must provides.
+ - The text presented before the phrase is not be said. It is their only for the Lambda functions use. (signifies intent)
 
