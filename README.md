@@ -40,6 +40,7 @@ Once the session has started, the user can do a few things.
  - Ask who the current user is
  - Logout
 
-All voice commands Jarvis understands can be found in the 'sample_utterances.txt' file. (in extra folder)
-Any word enclosed in {} are key words that the user provides.
+Voice Commands
+ - All voice commands Jarvis understands can be found in the 'sample_utterances.txt' file. (in extra folder)
+ - Any word enclosed in {} are key words that the user must provides.
 
