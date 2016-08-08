@@ -2,16 +2,49 @@
 
 _The lab partner that does things right!_
 
-## Introduction
-Jarvis is your personal assistant in the lab. He will tell you the steps to an experiment and store data for you. All you have to do is tell him too! Jarvis is built using Python 2.7 and AWS Lambda.
+## What is Jarvis?
+Jarvis is an Alexa/Amazon Echo Skill that can walk you through the Gel Electrophoresis experiment and store data
+for your retrieval in the future.
 
-## How it Works
-Jarvis knows what you want him to do by assigning certain key phrases and sentences to intents which Alexa passes to our program
-for further processing and then builds a response to pass back to the Echo and then on too you. All the data that you input into
-Jarvis is stored in ERMrest: (https://github.com/informatics-isi-edu/ermrest)
+## Installation
+1. Sign into the AWS management console(how to create an account: http://docs.aws.amazon.com/lambda/latest/dg/setting-up.html)
+1. Click on 'Services' in the top left corner of the screen and choose Lambda
+1. Click 'Create a Lambda Function'
+1. Press skip when presented with example functions
+1. Set the trigger to 'Alexa Skills Kit' 
+1. Name the Function and add a description where the space is provided and Set 'Runtime*' to 'python 2.7'
+1. Change 'Code entry type' to 'Upload a .zip'
+1. Clone this repository to your machine
+1. run the 'create_deployment.py' script. This should create a folder and .zip file in your deployments directory
+1. On the create Lambda function page under 'Code entry type' click 'upload' and upload the zip that 'create_deployment' create
+1. In the 'Handler*' box change 'lambda_function.lambda_handler' to 'main.lambda_handler'
+1. Set 'existing role' to 'lambda_basic_execution'
+1. Press 'Next' and then 'Create Function'
+1. On the 'Triggers' tap click 'Alexa Developer Portal'. (Copy the ARN in the top right corner)
+1. Press 'Alexa Skills Kit' then click 'Create add a new Skill'
+1. Name the skill, then set the 'invocation name' to 'Jarvis'. Click Next
+1. In the 'extra' folder open 'sample_utterances.txt','genie_intent_schema' and 'custom slot types'.
+1. Set the corresponding sections to the text in the files. Click Next
+1. Chose 'Lambda ARN' for 'endpoint*' and paste your functions ARN in the space provided. Click Next
 
-## How to Install
-Clone Jarvis to your machine, then run the create deployment script. That should create a zip file which you can upload to 
-AWS Lambda. Create an AWS Lambda project and link it to the AlexaSkillsKit. Enable this skill for your account and your free to
-use Jarvis as you please.
-For the BluetoothLogin feature, go to: https://github.com/arstevens/BluetoothLogin
+Now the skill should be set up for use on your account!
+
+## Using Jarvis
+In order to use Jarvis the user must first log in. Login can be done in two ways.
+ - Through a simple voice command: 'Alexa ask Jarvis, Login user {UserName}'
+ - Through the Bluetooth Login feature: https://github.com/arstevens/BluetoothLogin
+
+Once a session has started the user can a few things.
+ - Open an old experiment for data retrieval or continuation(Experiment ID is required)
+ - Start a new experiment.
+ - Ask who the current user is
+ - Logout
+
+All voice commands Jarvis understands can be found in the 'sample_utterances.txt' file. (in extra folder)
+
+All data from experiments the user conducts will be stored under this name. In order to retrieve data the user
+must user this username.
+
+
+
+

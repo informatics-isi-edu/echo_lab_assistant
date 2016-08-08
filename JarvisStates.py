@@ -3,7 +3,6 @@ from GelElectrophoresis import GelElectrophoresis
 from JarvisBaseState import JarvisBaseState
 from ErmrestHandler import ErmrestHandler
 from DataRetrieval import DataRetrieval
-import re
 #===================================Authenticate==============================================
 class AuthenticateState(JarvisBaseState):
 	
@@ -262,7 +261,7 @@ class IntentState(JarvisBaseState):
 	def handle_input(self):
 		print("in IntentState")
 
-		if (re.search("Experiment",self._intent)):
+		if (self._intent.find("Experiment") != -1):
 			#if the request is an experiment request, run these
 			if self._intent == "ExperimentLoadingSampleAssignmentIntent":
 				sample_type = self._get_slot_value("SampleType",self._request)
