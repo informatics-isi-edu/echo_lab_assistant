@@ -16,12 +16,12 @@ for your retrieval in the future.
 1. Change 'Code entry type' to 'Upload a .zip'
 1. Clone this repository to your machine
 1. run the 'create_deployment.py' script. This should create a folder and .zip file in your deployments directory
-1. On the create Lambda function page under 'Code entry type' click 'upload' and upload the zip that 'create_deployment' create
+1. On the create Lambda function page under 'Code entry type' click 'upload' and upload the zip that 'create_deployment' created
 1. In the 'Handler*' box change 'lambda_function.lambda_handler' to 'main.lambda_handler'
 1. Set 'existing role' to 'lambda_basic_execution'
 1. Press 'Next' and then 'Create Function'
-1. On the 'Triggers' tap click 'Alexa Developer Portal'. (Copy the ARN in the top right corner)
-1. Press 'Alexa Skills Kit' then click 'Create add a new Skill'
+1. On the 'Triggers' tab click 'Alexa Developer Portal'. (Copy the ARN in the top right corner)
+1. Press 'Alexa Skills Kit' then click 'Add a new Skill'
 1. Name the skill, then set the 'invocation name' to 'Jarvis'. Click Next
 1. In the 'extra' folder open 'sample_utterances.txt','genie_intent_schema' and 'custom slot types'.
 1. Set the corresponding sections to the text in the files. Click Next
@@ -34,17 +34,12 @@ In order to use Jarvis the user must first log in. Login can be done in two ways
  - Through a simple voice command: 'Alexa ask Jarvis, Login user {UserName}'
  - Through the Bluetooth Login feature: https://github.com/arstevens/BluetoothLogin
 
-Once a session has started the user can a few things.
+Once the session has started, the user can do a few things.
  - Open an old experiment for data retrieval or continuation(Experiment ID is required)
  - Start a new experiment.
  - Ask who the current user is
  - Logout
 
 All voice commands Jarvis understands can be found in the 'sample_utterances.txt' file. (in extra folder)
-
-All data from experiments the user conducts will be stored under this name. In order to retrieve data the user
-must user this username.
-
-
-
+Any word enclosed in {} are key words that the user provides.
 
