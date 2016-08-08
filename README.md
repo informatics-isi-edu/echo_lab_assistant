@@ -44,3 +44,6 @@ Voice Commands
  - All voice commands Jarvis understands can be found in the 'sample_utterances.txt' file. (in 'Interaction_Model' folder)
  - Any word enclosed in {} are key words that the user must provides.
  - The text presented before the phrase is not be said. It is their only for the Lambda functions use. (signifies intent)
+
+## Developer Reference:
+ - https://github.com/informatics-isi-edu/echo_lab_assistant/blob/master/docs/Reference.md
