@@ -1,6 +1,11 @@
 # DataRetrieval Class
 Invoked when Retrieval/Get intent is returned. Contains methods for all Get intents
 
+## Constructor(ermrest,experiment_id,user)
+ - Takes an instance of ErmrestHandler class
+ - Takes the experiment id to grab data from
+ - Takes the username to grab data from
+
 ## _get_experiment_data(column) method
 Gets data from the colum provided out of the 'experiment_data' table based on the experiment id and
 username provided in the constructor.

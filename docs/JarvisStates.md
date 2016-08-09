@@ -1,6 +1,11 @@
 # JarvisStates File
 A file containing concrete implementations of the JarvisBaseState
 
+## Constructor(request,session,ermrest)
+ - request to get data from
+ - session to get session attributes
+ - Instance of ErmrestHandler class
+
 ## AuthenticateState Class
 Checks if their is a user currently logged in.
 If not it transitions to LoginState. If their is

@@ -1,6 +1,11 @@
 # GelElectrophoresis Class
 Contains all the methods for the experiment intents.
 
+## Constructor(username,experiment_id,ermrest)
+ - Username to store data under
+ - experiment id to store data under
+ - Instance of Ermrest class
+
 ## add_item(data,item) method
 Adds an item to a string list that is held in the 'experiment_data' table.
 

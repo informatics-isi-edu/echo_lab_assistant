@@ -2,6 +2,10 @@
 A class that allows a user to easily create new tables,schemas,catalogs in an ermrest database.
 Allows user to put, delete and retireve data in a specified table. 
 
+## Constructor(username,password)
+ - Takes in the username for login
+ - Takes in the password for login
+
 ## get_cookie(username,password) method
 starts a session and returns a cookie for future interaction. Called in constructor
 
