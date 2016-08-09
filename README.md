@@ -32,7 +32,7 @@ Now the skill should be set up for use on your account!
 ## Using Jarvis
 In order to use Jarvis the user must first log in. Login can be done in two ways.
  - Through a simple voice command: 'Alexa ask Jarvis, Login user {UserName}'
- - Through the Bluetooth Login feature: https://github.com/arstevens/BluetoothLogin
+ - Through the [Bluetooth Login feature](https://github.com/arstevens/BluetoothLogin)
 
 Once the session has started, the user can do a few things.
  - Open an old experiment for data retrieval or continuation(Experiment ID is required)
@@ -47,4 +47,4 @@ Voice Commands
    - Example: 'ExperimentIntent this is an experiment intent'. The phrase is 'This is an experiment intent' not 'ExperimentIntent'
 
 ## Developer Reference:
- - https://github.com/informatics-isi-edu/echo_lab_assistant/blob/master/docs/Reference.md
+ - [documentation](https://github.com/informatics-isi-edu/echo_lab_assistant/blob/master/docs/Reference.md)
