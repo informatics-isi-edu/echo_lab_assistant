@@ -46,5 +46,5 @@ Voice Commands
  - The text presented before the phrase is not be said. It is their only for the Lambda functions use. (signifies intent)
    - Example: 'ExperimentIntent this is an experiment intent'. The phrase is 'This is an experiment intent' not 'ExperimentIntent'
 
-## Developer Reference:
- - [documentation](https://github.com/informatics-isi-edu/echo_lab_assistant/blob/master/docs/Reference.md)
+## Documentation 
+ - [Developer Reference](https://github.com/informatics-isi-edu/echo_lab_assistant/blob/master/docs/Reference.md)
